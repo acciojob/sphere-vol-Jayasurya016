@@ -4,16 +4,18 @@ function volume_sphere(event) {
   // Get radius value
   const radius = parseFloat(document.getElementById('radius').value);
 
-  // Validate
+  // Validate and calculate
   let volume;
   if (isNaN(radius) || radius < 0) {
-    volume = NaN;
+    // If input is not a number or is negative, set volume to NaN string
+    volume = 'NaN';
   } else {
+    // Correctly calculate and round the volume
     volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
     volume = volume.toFixed(4); // round to 4 decimals
   }
 
-  // Display result
+  // Display the result
   document.getElementById('volume').value = volume;
 }
 
