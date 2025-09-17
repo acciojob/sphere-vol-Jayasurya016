@@ -1,21 +1,23 @@
-function volume_sphere() {
-    //Write your code here
+function volume_sphere(event) {
+  event.preventDefault(); // stop page reload
+
+  // Get radius value
   const radius = parseFloat(document.getElementById('radius').value);
 
-      // Calculate volume if valid, else NaN
-      let volume;
-      if (isNaN(radius) || radius < 0) {
-        volume = NaN;
-      } else {
-        volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
-        volume = volume.toFixed(4); // Round to 4 decimal places
-      }
+  // Validate
+  let volume;
+  if (isNaN(radius) || radius < 0) {
+    volume = NaN;
+  } else {
+    volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
+    volume = volume.toFixed(4); // round to 4 decimals
+  }
 
-      // Display in the output field
-      document.getElementById('volume').value = volume;
+  // Display result
+  document.getElementById('volume').value = volume;
+}
 
-      // Prevent form submission (page reload)
-      return false;
-} 
-
-window.onload = document.getElementById('MyForm').onsubmit = volume_sphere;
+// Attach submit event properly
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('sphereForm').onsubmit = volume_sphere;
+});

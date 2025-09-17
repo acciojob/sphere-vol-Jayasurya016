@@ -11,16 +11,17 @@ label,input{display:block;}
 <body>
 	 <div class="container">
     <h2>Calculate Volume of a Sphere</h2>
-    <form onsubmit="return volume_sphere()">
+    <form id="sphereForm">
       <label for="radius">Enter Radius:</label>
       <input type="number" id="radius" step="any" required>
       
       <label for="volume">Volume:</label>
       <input type="text" id="volume" readonly>
 
-      <button type="submit">Calculate</button>
+      <button type="submit" id="submit">Calculate</button>
     </form>
   </div>
+
 	<script type="text/javascript" src="./script.js"></script>
 </body>
 </html>
